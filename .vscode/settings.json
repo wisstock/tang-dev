@@ -1,0 +1,24 @@
+{
+  "verilog.linting.linter": "verilator",
+  "verilog.linting.path": "/Users/wisstock/bio_hardware/tang_dev/.tools/oss-cad-suite/bin",
+  "verilog.linting.verilator.arguments": "-sv -Wall",
+  "verilog.linting.verilator.runAtFileLocation": true,
+  "python.defaultInterpreterPath": "${workspaceFolder}/.tools/oss-cad-suite/py3bin/python3",
+  "files.associations": {
+    "*.cst": "plaintext",
+    "demo.mk": "makefile"
+  },
+  "files.exclude": {
+    "**/__pycache__": true
+  },
+  "search.exclude": {
+    ".tools": true,
+    "downloads": true,
+    "build": true
+  },
+  "files.watcherExclude": {
+    "**/.tools/**": true,
+    "**/downloads/**": true,
+    "**/build/**": true
+  }
+}

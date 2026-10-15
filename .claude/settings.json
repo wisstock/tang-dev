@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": true,
+
+    "excludedCommands": [
+      "openFPGALoader *",
+      "make detect",
+      "make flash-sram",
+      "make flash-perm",
+      "make flash-backup",
+      "*/openFPGALoader",
+      "*/openFPGALoader *",
+      "make detect *",
+      "make flash-sram *",
+      "make flash-perm *",
+      "make flash-backup *"
+    ],
+
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "api.github.com",
+        "release-assets.githubusercontent.com"
+      ]
+    },
+
+    "credentials": {
+      "files": [
+        { "path": "~/.ssh",             "mode": "deny" },
+        { "path": "~/.aws",             "mode": "deny" },
+        { "path": "~/.gnupg",           "mode": "deny" },
+        { "path": "~/.config/gh",       "mode": "deny" },
+        { "path": "~/.netrc",           "mode": "deny" },
+        { "path": "~/.docker",          "mode": "deny" }
+      ],
+      "envVars": [
+        { "name": "GITHUB_TOKEN", "mode": "deny" },
+        { "name": "GH_TOKEN",     "mode": "deny" }
+      ]
+    }
+  },
+
+  "permissions": {
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(kextunload *)",
+      "Bash(kextload *)",
+      "Bash(kmutil *)",
+      "Bash(systemextensionsctl *)",
+      "Bash(softwareupdate *)",
+      "Bash(xattr *)",
+      "Bash(brew uninstall *)",
+      "Bash(git push *)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.config/gh/**)",
+      "Edit(~/.zshrc)",
+      "Edit(~/.zprofile)",
+      "Edit(~/.bashrc)",
+      "Edit(//Users/wisstock/bio_hardware/au_dev/**)"
+    ],
+    "ask": [
+      "Bash(openFPGALoader *)",
+      "Bash(make detect)",
+      "Bash(make flash-sram)",
+      "Bash(make flash-perm)",
+      "Bash(make flash-backup)",
+      "Bash(brew *)",
+      "Bash(dangerouslyDisableSandbox:true)",
+      "Bash(*/openFPGALoader)",
+      "Bash(*/openFPGALoader *)",
+      "Bash(make detect *)",
+      "Bash(make flash-sram *)",
+      "Bash(make flash-perm *)",
+      "Bash(make flash-backup *)"
+    ]
+  },
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/guard-flash.sh" }
+        ]
+      }
+    ]
+  }
+}

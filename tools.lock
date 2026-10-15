@@ -1,0 +1,21 @@
+# Pinned toolchain for this project. Tracked in git: the single source of truth for what goes
+# into .tools/ (which is git-ignored and disposable). Update this file together with any tool change.
+# Format: one "key = value" per line; README.md reads archive, url and sha256 from here.
+
+[oss-cad-suite]
+release  = 2026-09-19
+archive  = oss-cad-suite-darwin-arm64-20260919.tgz
+url      = https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2026-09-19/oss-cad-suite-darwin-arm64-20260919.tgz
+size     = 521327438
+sha256   = 01577fe50829202f76013a30606193134778f577b7a959618dc4ffe94c9a037e
+# sha256 origin: GitHub API asset digest of the release asset; local archive re-checked OK on 2026-10-15.
+
+# Versions as printed by the installed tools (for checking an installation)
+yosys              = Yosys 0.69+75
+nextpnr-himbaechel = nextpnr-0.11.1-30-g3e53a0bf
+openFPGALoader     = v1.1.1
+verilator          = Verilator 5.053
+iverilog           = 14.0 (devel)
+cocotb             = 2.1.0.dev0+41564633
+apycula            = 0.34.dev11+ge3eb31c6a
+gowin              = nextpnr-himbaechel uarch gowin, chipdb-GW1N-9C.bin, gowin_pack, gowin_pll

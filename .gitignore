@@ -1,0 +1,15 @@
+.tools/
+downloads/
+backup/
+sim_build/
+__pycache__/
+results.xml
+*.json
+!.claude/settings.json
+!.vscode/*.json
+*.log
+CLAUDE.local.md
+.claude/settings.local.json
+build/
+.DS_Store
+*.fs

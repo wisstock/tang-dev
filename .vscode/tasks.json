@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "demo",
+      "type": "pickString",
+      "description": "Design (folder in demo/)",
+      "options": ["blinky", "btn_counter"],
+      "default": "blinky"
+    }
+  ],
+  "tasks": [
+    { "label": "0. Lint (Verilator)", "type": "shell", "command": "make lint DEMO=${input:demo}", "problemMatcher": [] },
+    { "label": "1. Simulate (cocotb)", "type": "shell", "command": "make sim DEMO=${input:demo}",
+      "group": { "kind": "test", "isDefault": true }, "problemMatcher": [] },
+    { "label": "2. Waveforms (gtkwave)", "type": "shell", "command": "make waves DEMO=${input:demo}",
+      "presentation": { "panel": "dedicated" }, "problemMatcher": [] },
+    { "label": "3. Build bitstream", "type": "shell", "command": "make build DEMO=${input:demo}",
+      "group": { "kind": "build", "isDefault": true }, "problemMatcher": [] },
+    { "label": "4. Detect board", "type": "shell", "command": "make detect", "problemMatcher": [] },
+    { "label": "5. Flash SRAM (volatile)", "type": "shell", "command": "make flash-sram DEMO=${input:demo}", "problemMatcher": [] },
+    { "label": "6. Flash (persistent)", "type": "shell", "command": "make flash-perm DEMO=${input:demo}", "problemMatcher": [] },
+    { "label": "Clean build", "type": "shell", "command": "make clean DEMO=${input:demo}", "problemMatcher": [] }
+  ]
+}

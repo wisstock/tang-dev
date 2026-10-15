@@ -1,0 +1,15 @@
+# cocotb 2.x + Icarus Verilog (from OSS CAD Suite) for any demo/<name>.
+# Called by the top-level Makefile (make sim DEMO=<name>), which passes DEMO_* and SIM_BUILD.
+SIM           ?= icarus
+TOPLEVEL_LANG ?= verilog
+# Dump signals to $(SIM_BUILD)/<TOP>.fst (a comment must not share a line with a value)
+WAVES         ?= 1
+
+VERILOG_SOURCES      = $(DEMO_SOURCES)
+COCOTB_TOPLEVEL      = $(DEMO_TOP)
+COCOTB_TEST_MODULES  = $(DEMO_TEST)
+
+# Simulation-only parameters (-P<top>.<param>=<value>) from SIM_PARAMS in demo.mk
+COMPILE_ARGS += $(DEMO_SIM_ARGS)
+
+include $(shell cocotb-config --makefiles)/Makefile.sim
