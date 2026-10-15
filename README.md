@@ -14,7 +14,7 @@ Open-source flow for the Sipeed Tang Nano 9K (Gowin GW1NR-LV9QN88PC6/I5) on Appl
 
 | Path | Contents | In git |
 | --- | --- | --- |
-| `FPGA_INTRO.md` | FPGA introduction for beginners: what an FPGA is, bitstream, toolchain, project structure | yes |
+| `FPGA_INTRO.md` | FPGA introduction for beginners| yes |
 | `Makefile` | all targets (see **Make targets**) | yes |
 | `Makefile.sim` | generic cocotb runner (Icarus, FST waves), called by `make sim` | yes |
 | `demo/<name>/` | one design: `*.sv` (one module per file, named after it), `*.cst` pins, `test_*.py` cocotb tests, `demo.mk` | yes |
@@ -167,7 +167,7 @@ Self-test: delete a `;` in a `.sv` file → a Verilator error appears in Problem
 
 | Шлях | Вміст | У git |
 | --- | --- | --- |
-| `FPGA_INTRO.md` | вступ до FPGA для початківців: що таке FPGA, бітстрім, інструменти, структура проєкту | так |
+| `FPGA_INTRO.md` | вступ до FPGA для початківців | так |
 | `Makefile` | усі цілі (див. **Цілі make**) | так |
 | `Makefile.sim` | загальний запускач cocotb (Icarus, осцилограми FST), викликається з `make sim` | так |
 | `demo/<назва>/` | один дизайн: `*.sv` (один модуль на файл, файл названо за модулем), піни `*.cst`, тести cocotb `test_*.py`, `demo.mk` | так |
